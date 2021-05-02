@@ -19,7 +19,9 @@ router.get('/admin/products',requireAuth,async(req, res) => {
 router.get('/admin/products/new',requireAuth, (req, res) => {
   res.send(productsNewTemplate({}));
 });
-
+router.get('/admin/',requireAuth,async(req, res) => {
+    res.redirect('/');
+});
 router.post(
   '/admin/products/new',requireAuth,
   upload.single('image'),

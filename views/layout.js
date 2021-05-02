@@ -28,11 +28,9 @@ module.exports = ({ content }) => {
               </div>
               <div>
                 <ul class="social">
-                  <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fab fa-dribbble"></i></a></li>
-                  <li><a href=""><i class="fab fa-google-plus"></i></a></li>
+                  <li><a href="/signin">Sign In</a></li>
+                  <li><a href="/signup">Sign Up</a></li>
+                  <li><a href="/signout">Log Out</a></li>
                 </ul>
               </div>
             </div>
@@ -51,6 +49,9 @@ module.exports = ({ content }) => {
                   </div>
                   <div class="navbar-item">
                     <a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a>
+                  </div>
+                  <div class="navbar-item">
+                    <a href="/admin/products"></i>Admin Panel</a>
                   </div>
                 </div>
               </div>

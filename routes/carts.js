@@ -18,7 +18,7 @@ router.post('/cart/products', async (req, res) => {
     cart = await cartsRepo.getOne(req.session.cartId);
   }
 
-  console.log(cart);
+  // console.log(cart);
 
   const existingItem = cart.items.find(item => item.id === req.body.productId);
   if (existingItem) {
@@ -31,13 +31,14 @@ router.post('/cart/products', async (req, res) => {
   await cartsRepo.update(cart.id, {
     items: cart.items
   });
+  // return res.redirect('/');
 
   res.send('Product added to cart');
 });
 
 router.get('/cart', async (req, res) => {
   if (!req.session.cartId) {
-    return res.redirect('/');
+    res.send("Either your are not signed in or your cart is empty, please add at least one item before proceeding")
   }
 
   const cart = await cartsRepo.getOne(req.session.cartId);
@@ -52,13 +53,14 @@ router.get('/cart', async (req, res) => {
 });
 
 router.post('/cart/products/delete',async(req,res)=>{
-
-	const {itemId}= req.body;
+  console.log(req.body.itemId);
+  console.log("hello boy");
+	const { itemId }= req.body;
 	const cart = await cartsRepo.getOne(req.session.cartId);
+  // console.log()
+	const items=cart.items.filter(item=>item.id != itemId);
 
-	const items=cart.items.filter(item=>item.id != item.Id);
-
-	await cartsRepo.update(req.session.cartId,{items});
+	await cartsRepo.update(req.session.cartId,{items}); 
  
 	res.redirect('/cart');
 }); 
